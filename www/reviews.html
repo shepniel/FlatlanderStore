@@ -1,0 +1,28 @@
+	<form name="reviewForm" ng-submit="review.Form.$valid&&reviewCtrl.addReview(product)" novalidate>
+			<div class="row" >
+			<blockquote>
+				<b>Stars: {{reviewCtrl.review.stars}}</b>
+				{{reviewCtrl.review.body}}
+				<cite>by: {{reviewCtrl.review.author}}</cite>
+			</blockquote>
+			<div class="form-group">
+			<label for="select">Rate this product</label>
+				<select name="" id="select" class="form-control ng-pristine ng-invalid" ng-model="reviewCtrl.review.stars" required ]>
+					<option value="rate" selected="selected">Rate this Product</option>
+					<option value="1">1 Stars</option>
+					<option value="2">2 Stars</option>
+					<option value="3">3 Stars</option>
+					<option value="4">4 Stars</option>
+					<option value="5">5 Stars</option>
+				</select>
+				<label for="body">Add a resume about the product:</label> <br>
+				<textarea class="ng-dirty ng-invalid"name="" id="body" cols="20" rows="50" ng-model="reviewCtrl.review.body" required></textarea><br>
+				<label for="email">By:</label>
+				<input type="email" id= "email" class="form-control ng-dirty ng-invalid" ng-model="reviewCtrl.review.author" required>
+				<div>reviewForm is {{reviewForm.$valid}}</div>
+				<div class="col-lg-12 col-md- col-sm-6">
+				<label for="submit"></label>
+				<input ng-disabled="reviewForm.$invalid" type="submit" class="btn btn-primary pull-right btn-lg btn-block" value="Submit" class="form-control">	
+				</div>
+				
+			</form>	

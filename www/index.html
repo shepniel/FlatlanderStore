@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="gemStore">
+<head>
+	<meta charset="UTF-8">
+	<title>Flatlanders Store</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/angular-bootstrap-lightbox.css">
+	<link rel="stylesheet" href="css/angular-bootstrap-lightbox.min.css">
+
+
+</head>
+<body>
+<!--<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium dignissimos sed nisi, assumenda quae ut minus. Ipsa distinctio similique expedita. Provident rem ea fugit consequatur non, quo atque, ipsa ipsum!</h1>
+
+<p>I am {{15+6}}</p>
+<p>	{{"Hello" + "World"}}</p>
+-->
+<div class="container" ng-controller="StoreController as store">
+	<div class="list-group">
+		<div class="list-group-item" ng-repeat="product in store.products | orderBy: 'precio'">
+				<!--<h3 ng-include="'product-title.html'"></h3>
+				<product-title></product-title>-->
+				<h3 product-title></h3>
+				<!-- <img ng-src="{{product.images[0].url}}" alt="" class="
+				center-block"> -->
+				<!--<button ng-show="product.canPurchase">Add to Cart</button>Mostrar directiva-->
+			<!--	<div class="row">
+			 		<div class="col-sm6 col-md-3">
+					<div>
+					<a href="" class="thumnail">
+						<img ng-repeat="image in product.images" ng-src="{{image.url}}" class="image-responsive">
+					</a>
+				  </div>
+				</div> -->
+				<div class="" ng-controller="GalleryController as gallery" ng-show="product.images.length">
+					<div class="img-wrap">
+						<img  class="center-block" ng-src="{{product.images[gallery.current].url}}">
+					</div>
+					<ul class="img-thumbnails clearfix center-block">
+						<li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+							<img class="center-block" ng-src="{{image.url}}" ng-click="gallery.setCurrent(image.id)">
+						</li>
+					</ul>
+				</div>
+				<product-panels></product-panels>
+		</div>
+	</div>
+</div>
+
+<script src="js/angular.min.js"></script>
+<script src="js/angular-bootstrap-lightbox.js"></script>
+<script src="js/angular-bootstrap-lightbox.min.js"></script>
+<script src="js/bootstrap.min.js"></script>	
+<script src="js/app.js"></script>
+<script src="js/products.js"></script>
+
+</body>
+</html>
+
+<!--Directives HTML annotation that trigger js behaviors
+Modules Where our application components live
+Controllers Where we add aplication bhavior
+Expressions How values get displayed within the page 
+NG_CLASS shaping up with angular js level 4 crating a directive
+Por atributo o propuedad
+alonsosalcido13
+-->
